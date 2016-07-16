@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    #Rails.logger.info requst.enc["HTTP_COKIE"]
     @users = User.all
   end
 
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_path, notice: 'Account Created'
     else
       render 'new'
