@@ -1,0 +1,11 @@
+<h1>Message Index page</h1>
+<% @messages.each do |message| %>
+    <li><%= message.body %></li>
+<% end %>
+<%= form_for @new_message do |f| %>
+    <div class="container">
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+      <%= f.submit 'send' %>
+    </div>
+<% end %>

@@ -1,20 +1,22 @@
-<h1>Users</h1>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th data-field="id">Name</th>
-    <th data-field="name">Email</th>
-    <th data-field="price">Created At</th>
-  </tr>
-  </thead>
+<div class="container">
+  <h1>Users List</h1>
+  <table class="table table-striped centered">
+    <thead>
+    <tr>
+      <th data-field="id">Name</th>
+      <th colspan="2"></th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= time_ago_in_words user.created_at %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><strong><%= user.name %></strong></td>
+          <!--we are trying to navigate to friendships controller create action cal friendships_path with method post, that will trigger a post request to got to create action in our frienships controller-->
+          <!--and we need to specify for which user we are trying to add as a friend, we can do that by just passing an additional parameter friend_id as the user that will pass on the user 's ID with their sow e can grab it in our friendships create action-->
+          <td><%= link_to  'Add Friend', friendships_path(:friend_id => user), :method => :post%></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

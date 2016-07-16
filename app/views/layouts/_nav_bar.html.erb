@@ -1,10 +1,13 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo" style="margin-left: 2cm;">LOl chat</a>
+    <a href="#" class="brand-logo" style="margin-left: 2cm;">Lol chat</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user %>
           <li class="nav-item">
             <%= link_to "Logout #{current_user.name}", logout_path, method: 'delete' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'View Profile', user_path(current_user) %>
           </li>
       <% else %>
           <li class="nav-item">

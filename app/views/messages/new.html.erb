@@ -1,0 +1,10 @@
+<!--to make it submit POST /user/123/messages when creating:-->
+<%= form_for [@user, @message] do |f| %>
+
+    <%= f.label :recipient_id %>
+    <%= f.select :recipient_id, @users.map { |u| [u.email, u.id] } %>
+
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+
+<% end %>
