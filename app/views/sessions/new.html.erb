@@ -1,7 +1,14 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
 <%= form_tag sessions_path do %>
-    <%= text_field_tag :email %>
-    <%= password_field_tag :password %>
-    <%= submit_tag 'Log In' %>
+    <div class="div">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="div">
+      <%= password_field_tag :password %>
+    </div>
+    <div class="div">
+      <%= submit_tag 'Log In' %>
+    </div>
 <% end %>
