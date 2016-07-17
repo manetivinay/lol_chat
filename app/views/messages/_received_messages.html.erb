@@ -1,0 +1,17 @@
+<hr>
+<% @received_messages.each do |received_message| %>
+    <% if received_message.read == true %>
+        <p>From: <%= received_message.sender.name %></p>
+        <p><strong style="color: green;">Status: Read</strong></p>
+    <% else %>
+        <p>
+          From <%= link_to received_message, title: "Click to see the message"  do %>
+              <%= received_message.sender.name%>
+          <% end %>
+        </p>
+        <p><strong style="color:red;">Status: Unread</strong></p>
+    <% end %>
+
+    <em>Received at: <%= received_message.created_at.strftime("%H:%I %p, %d/%m/%Y") %></em>
+    <hr>
+<% end %>

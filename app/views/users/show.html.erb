@@ -1,0 +1,19 @@
+<h2>My Profile</h2>
+<p>Username : <%= @user.name %></p>
+
+<h3>Friends</h3>
+
+
+<% @user.friendships.each do |friendship| %>
+    <li><%= friendship.friend.name %></li>
+    (<%= link_to 'remove', friendship, :method => :delete %>)
+<% end %>
+
+<p><%= link_to 'Find Friends', users_path %></p>
+
+<h2>Friends by users</h2>
+<ul>
+  <% @user.inverse_friends.each do |inverse_friends| %>
+      <li><%= inverse_friends.name %></li>
+  <% end %>
+</ul>

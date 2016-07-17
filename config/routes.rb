@@ -1,9 +1,30 @@
 Rails.application.routes.draw do
+  resources :friendships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create]
 
-  resources :users
+  get '/inbox' => 'messages#inbox'
   delete '/logout' => 'sessions#destroy'
-  root 'users#index'
+  get 'sent_messages' => 'messages#sent_messages'
+  root 'users#welcome'
+
+  # this gives you actions similar to 'index'
+  #GET/messages/sent
+  #GET/messages/received
+  resources :messages do
+    # collection do
+    #   get :sent
+    #   get :received
+    # end
+  end
+
+
+  #use this to create a message under a user
+  # GET /users/123/messages/new
+  # POST /users/123/messages/create
+  # note: params[:user_id] is teh id of the parent resource
+  resources :users do
+    resources :messages
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
