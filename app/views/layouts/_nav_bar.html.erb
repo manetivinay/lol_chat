@@ -1,10 +1,20 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo" style="margin-left: 2cm;">LOl chat</a>
+    <a href="<%= root_path %>" class="brand-logo" style="margin-left: 2cm;">Lol chat</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user %>
+          <li><a href="<%= messages_path %>"><i class="material-icons">home</i></a></li>
           <li class="nav-item">
-            <%= link_to "Logout #{current_user.name}", logout_path, method: 'delete' %>
+            Welcome <%= current_user.name %>! Not you? <%= link_to 'Log out', logout_path, method: 'delete' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'View Profile', user_path(current_user) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Send Message', new_message_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Inbox', inbox_path %>
           </li>
       <% else %>
           <li class="nav-item">
