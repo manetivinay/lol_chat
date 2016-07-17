@@ -1,4 +1,4 @@
-# Homework 2 - *Name of App*
+# Homework 2 - *Lol Chat*
 
 **Lol Chat** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough](lol_chat.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
