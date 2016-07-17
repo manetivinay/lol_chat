@@ -1,7 +1,11 @@
 <%= render 'shared/errors', obj: @message %>
 <h1 class="text-sm-center">Send Message to your friend</h1>
-<%= simple_form_for @message do |f| %>
-    <%= f.association :recipient, collection: current_user.friends, :include_blank => false %>
-    <%= f.input :body %>
-    <%= f.button :submit, "Send Message", class: "btn btn-secondary" %>
-<% end %>
+<div class="container">
+  <div class="row col-md-12" style="border:1px solid black; padding: 30px 30px 30px 30px;">
+    <%= simple_form_for @message do |f| %>
+        <%= f.association :recipient, collection: current_user.friends, :include_blank => false %>
+        <%= f.input :body, :placeholder => 'Enter your message...', :class => 'validate' %>
+        <%= f.button :submit, 'Send Message', class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div>

@@ -1,12 +1,24 @@
-<h1> your Inbox</h1>
-<% @received_messages.each do |received_message| %>
-    <% if received_message.read == true %>
-        <strong><%= received_message.sender.name %></strong>
-        <p><strong style="color: green;">Status: Read</strong></p>
-    <% else %>
-        <%= link_to "Read Your Message Here", received_message %>
-        <p><strong style="color: red;">Status: Unread</strong></p>
-    <% end %>
-    <hr>
-    <br>
-<% end %>
+<h1> Your Inbox</h1>
+<div class="collection">
+  <% @received_messages.each do |received_message| %>
+
+      <% if received_message.read == true %>
+          <div class="collection-item">
+            <strong><%= received_message.sender.name %></strong>
+
+            <p><strong style="color: green;">Status: Read</strong></p>
+            <em>Received
+              at: <%= received_message.created_at.strftime("%H:%I %p, %d/%m/%Y") %></em>
+          </div>
+
+      <% else %>
+          <div class="collection-item">
+            <%= link_to 'Read Your Message Here', received_message  %>
+            <p><strong style="color: red;">Status: Unread</strong></p>
+            <em>Received
+              at: <%= received_message.created_at.strftime("%H:%I %p, %d/%m/%Y") %></em>
+          </div>
+      <% end %>
+
+  <% end %>
+</div>

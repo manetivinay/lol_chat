@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
       end
     end
     unless @message.recipient_id == current_user.id
-      flash[:error] = "You are not authorized to view this message !!!"
+      flash[:error] = 'You are not authorized to view this message !!!'
       redirect_to root_path
     end
   end

@@ -5,8 +5,8 @@
         <p><strong style="color: green;">Status: Read</strong></p>
     <% else %>
         <p>
-          From <%= link_to received_message, title: "Click to see the message"  do %>
-              <%= received_message.sender.name%>
+          From <%= link_to received_message, title: 'Click to see the message' do %>
+              <%= received_message.sender.name %>
           <% end %>
         </p>
         <p><strong style="color:red;">Status: Unread</strong></p>

@@ -1,19 +1,33 @@
-<h2>My Profile</h2>
-<p>Username : <%= @user.name %></p>
+<div class="row">
+  <div class="col s12">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">My Profile</span>
 
-<h3>Friends</h3>
+        <p>Username : <strong><%= @user.name %></strong></p>
+      </div>
+      <div class="card-action">
+        <h5> &#8594; Friends</h5>
 
+        <div class="container">
+          <% @user.friendships.each do |friendship| %>
+              <li class="white-text"><%= friendship.friend.name %> &nbsp
+                &nbsp <%= link_to 'REMOVE', friendship, :method => :delete %></li>
+          <% end %>
+        </div>
+        <br>
+        <%= link_to 'Find Friends', users_path, :class => "waves-effect waves-light btn" %>
 
-<% @user.friendships.each do |friendship| %>
-    <li><%= friendship.friend.name %></li>
-    (<%= link_to 'remove', friendship, :method => :delete %>)
-<% end %>
+        <h5> &#8594; Friends by users</h5>
 
-<p><%= link_to 'Find Friends', users_path %></p>
-
-<h2>Friends by users</h2>
-<ul>
-  <% @user.inverse_friends.each do |inverse_friends| %>
-      <li><%= inverse_friends.name %></li>
-  <% end %>
-</ul>
+        <div class="container">
+          <ul>
+            <% @user.inverse_friends.each do |inverse_friends| %>
+                <li class="white-text"><%= inverse_friends.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

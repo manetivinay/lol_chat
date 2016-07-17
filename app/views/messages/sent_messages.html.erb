@@ -1,12 +1,16 @@
-<h4>To Display Sent Messages</h4>
-<% @sent_messages.each do |sent_message| %>
-    <p><strong>To: <%= sent_message.recipient.name %></strong></p>
-    <% if sent_message.read == true %>
-        <p><strong style="color: green;">Status: Read</strong></p>
-        <em style="color: green;">Read at: <%= sent_message.try(:read_at) %></em>
-    <% else %>
-        <p><strong style="color: red;">Status: Not read yet!</strong></p>
-        <em style="color: red;">Sent at: <%= sent_message.try(:created_at) %></em>
+<h4 align="center">Your Sent Messages</h4>
+<div class="container">
+  <div class="row col-md-12" style="border:1px solid black; padding: 30px 30px 30px 30px;">
+    <% @sent_messages.each do |sent_message| %>
+        <p><strong>To: <%= sent_message.recipient.name %></strong></p>
+        <% if sent_message.read == true %>
+            <p><strong style="color: green;">Status: Read</strong></p>
+            <em style="color: green;">Read at: <%= sent_message.try(:read_at) %></em>
+        <% else %>
+            <p><strong style="color: red;">Status: Not read yet!</strong></p>
+            <em style="color: red;">Sent at: <%= sent_message.try(:created_at) %></em>
+        <% end %>
+        <hr>
     <% end %>
-    <hr>
-<% end %>
+  </div>
+</div>

@@ -1,13 +1,12 @@
-<h1>Create An Account</h1>
+<h2 align="center">Create An Account</h2>
 
 <%= form_for @user do |f| %>
-
     <% if @user.errors.any? %>
         <div class="alert alert-danger">
-          <h2>
+          <h4>
             <%= pluralize(@user.errors.count, "error") %>
             Prohibited this User from being created.
-          </h2>
+          </h4>
           <ul>
             <% @user.errors.full_messages.each do |msg| %>
                 <li> <%= msg %></li>
@@ -16,26 +15,28 @@
         </div>
     <% end %>
 
-    <div class="row">
+    <div class="container">
+      <div class="row col-md-12" style="border:1px solid black; padding: 30px 30px 30px 30px;">
 
-      <div class="input-field col s6">
-        <%= f.label :name %>
-        <%= f.text_field :name, placeholder: 'Enter your name...', class: 'validate' %>
+        <div class="input-field ">
+          <%= f.label :name %>
+          <%= f.text_field :name, :placeholder => 'Enter your name...', :class => "validate" %>
+        </div>
+
+        <div class="input-field ">
+          <%= f.label :email %>
+          <%= f.text_field :email, :placeholder => 'Enter your Email...', class: 'validate' %>
+        </div>
+
+        <div class="input-field ">
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: 'please enter your password...', class: 'validate' %>
+        </div>
+
+        <div class="input-field ">
+          <%= f.submit 'Create Account', class: 'btn btn-secondary ' %>
+        </div>
+
       </div>
-
-      <div class="input-field col s6">
-        <%= f.label :email %>
-        <%= f.text_field :email, class: 'validate' %>
-      </div>
-
-      <div class="input-field col s6">
-        <%= f.label :password %>
-        <%= f.password_field :password, placeholder: 'please enter your password...', class: 'validate' %>
-      </div>
-
-      <div class="input-field col s6">
-        <%= f.submit 'Create Account', class: 'btn btn-secondary ' %>
-      </div>
-
     </div>
 <% end %>

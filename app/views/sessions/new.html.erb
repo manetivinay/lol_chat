@@ -1,14 +1,18 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h2 align="center">Log In</h2>
 <%= form_tag sessions_path do %>
-    <div class="div">
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
-    </div>
-    <div class="div">
-      <%= password_field_tag :password %>
-    </div>
-    <div class="div">
-      <%= submit_tag 'Log In' %>
+    <div class="container">
+      <div class="row col-md-12" style="border:1px solid black; padding: 30px 30px 30px 30px;">
+        <div class="input-field ">
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+        </div>
+        <div class="input-field ">
+          <%= label_tag :Password %>
+          <%= password_field_tag :password %>
+        </div>
+        <div>
+          <%= submit_tag 'Log In', class: 'btn btn-secondary ' %>
+        </div>
+      </div>
     </div>
 <% end %>

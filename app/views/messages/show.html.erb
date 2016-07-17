@@ -1,5 +1,11 @@
-<% if @message.read == true %>
-    <h1>you have already read</h1>
-<% else %>
-    <strong><%= @message.body %></strong>
-<% end %>
+<div class="row">
+  <div class="col s12">
+    <div class="card-panel teal">
+      <% if @message.read == true %>
+          <span class="white-text"><h5>you have already read</h5></span>
+      <% else %>
+          <span class="white-text"><h6><%= @message.body %></h6></span>
+      <% end %>
+    </div>
+  </div>
+</div>

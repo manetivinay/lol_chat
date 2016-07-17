@@ -22,7 +22,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path, notice: 'Thanks you for signing up! you are now logged in.'
+      flash[:success] = 'Thanks you for signing up! you are now logged in.'
+      redirect_to users_path
     else
       render 'new'
     end
