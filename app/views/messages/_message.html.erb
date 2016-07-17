@@ -1,0 +1,6 @@
+<h1 class="text-sm-center">Create New Message</h1>
+<%= simple_form_for @message do |f| %>
+    <%= f.association :recipient, collection: current_user.friends, :include_blank => false %>
+    <%= f.input :body %>
+    <%= f.button :submit, "Send Message", class: "btn btn-secondary" %>
+<% end %>
